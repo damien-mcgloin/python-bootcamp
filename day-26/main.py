@@ -1,5 +1,10 @@
-numbers = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55]
+with open("file1.txt", "r") as f:
+    list1 = f.read().splitlines()
 
-new_list = [x for x in numbers if x % 2 == 0]
+with open("file2.txt", "r") as f:
+    list2 = f.read().splitlines()
 
-print(new_list)
+result = [int(x) for x in list1 if x in list2]
+result = list(dict.fromkeys(result))
+
+print(sorted(result))
